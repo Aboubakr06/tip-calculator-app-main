@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="font-SpaceMono font-bold text-2xl">
+  <main class="grid gap-16 bg-[var(--neutral-light-grey)] pt-16 lg:px-16 lg:py-32 lg:gap-24">
+
+    <img class="place-self-center" src="images/logo.svg" alt="logo">
+
+    <section class="grid p-8 gap-4 rounded-t-3xl bg-[var(--neutral-white)] lg:grid-cols-2 lg:place-self-center lg:w-3/4">
+
+      <div class="grid gap-4">
+
+        <h1 class="text-[var(--neutral-dark-grey)]">Bill</h1>
+
+        <div
+          class="flex items-center justify-between gap-4 bg-[var(--neutral-very-light-grey)] rounded-xl px-4 py-2 mb-8 hover:cursor-pointer border border-solid hover:border-[var(--primary-cyan)]">
+          <img class="w-4" src="images/icon-dollar.svg" alt="" aria-hidden="true">
+          <input
+            class="bill-input text-3xl text-[var(--neutral-dark-cyan)] w-full bg-inherit border-none px-2 text-right hover:cursor-pointer focus:outline-none"
+            type="number" placeholder="0">
+        </div>
+
+        <p class="text-lg text-[var(--neutral-dark-grey)]">Select Tip %</p>
+
+        <div class="grid gap-4 grid-cols-2 text-[var(--neutral-white)] mb-8 lg:grid-cols-3">
+
+          <button
+            class="five flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]">5%</button>
+          <button
+            class="ten flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]">10%</button>
+          <button
+            class="fifteen flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]">15%</button>
+          <button
+            class="twentyfive flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]">25%</button>
+          <button
+            class="fifty flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]">50%</button>
+          <input
+            class="custom-input text-right bg-[var(--neutral-very-light-grey)] rounded-lg focus:outline-[var(--neutral-dark--cyan)] text-[var(--primary-cyan)] px-4 hover:cursor-pointer"
+            type="number" placeholder="Custom">
+
+        </div>
+
+        <div class="flex items-center gap-2 justify-between">
+          <p class="text-base text-[var(--neutral-dark-grey)]">Number of People</p>
+          <p class="text-sm text-red-500 hidden">Can't be zero</p>
+        </div>
+        
+        <div
+        class="people-cont flex items-center justify-between gap-4 bg-[var(--neutral-very-light-grey)] rounded-xl px-4 py-2 mb-8 hover:cursor-pointer border border-solid hover:border-[var(--primary-cyan)]">
+          <img class="w-4" src="images/icon-person.svg" alt="" aria-hidden="true">
+          <input class="people-input text-3xl text-[var(--neutral-dark-cyan)] w-full bg-inherit border-none px-2 text-right hover:cursor-pointer focus:outline-none" type="number" placeholder="0">
+        </div>
+
+      </div>
+
+      <div class="grid gap-4 bg-[var(--neutral-dark-cyan)] p-8 text-[var(--neutral-white)] rounded-lg lg:flex lg:flex-col lg:justify-between">
+        <div class="grid gap-4">
+        <div class="flex items-top justify-between">
+          <p class="text-xl">Tip Amount
+            <span class="block text-base  text-[var(--neutral-grey)]">/ person</span>
+          </p>
+
+          <p class="tip-amount text-3xl text-[var(--primary-cyan)]">$0.00</p>
+
+        </div>
+
+        <div class="flex items-top justify-between">
+          <p class="text-xl">Total
+            <span class="block text-base text-[var(--neutral-grey)]">/ person</span>
+          </p>
+
+          <p class="total text-3xl text-[var(--primary-cyan)]">$0.00</p>
+
+        </div>
+</div>
+        <button class="reset flex items-center justify-center p-2 uppercase rounded-lg bg-[var(--primary-cyan)] text-[var(--neutral-dark-cyan)] hover:bg-[var(--neutral-light-grey)]">Reset</button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

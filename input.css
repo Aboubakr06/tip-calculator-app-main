@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --primary-cyan: hsl(172, 67%, 45%);
+        
+    --neutral-dark-cyan:       hsl(183, 100%, 15%);
+    --neutral-dark-grey:       hsl(186, 14%, 43%);
+    --neutral-grey:            hsl(184, 14%, 56%);
+    --neutral-light-grey:      hsl(185, 41%, 84%);
+    --neutral-very-light-grey: hsl(189, 41%, 97%);
+    --neutral-white:          hsl(0, 0%, 100%);
+    
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
