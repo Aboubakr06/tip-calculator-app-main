@@ -38,8 +38,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://www.frontendmentor.io/solutions/)
-- Live Site URL: (https://elaborate-marigold-258e98.netlify.app/)
+- Solution URL: [Solution URL](https://www.frontendmentor.io/solutions/tip-calculator-app-with-tailwindcss-Yv5FVDRfjd)
+- Live Site URL: [Live Site](https://elaborate-marigold-258e98.netlify.app/)
 
 ## My process
 
@@ -56,5 +56,4 @@ Users should be able to:
 ## Author
 
 - Frontend Mentor - [@Aboubakr06](https://www.frontendmentor.io/profile/Aboubakr06)
-- Twitter - [@elbouzidi99](https://twitter.com/elbouzidi99)
 
