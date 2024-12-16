@@ -40,31 +40,31 @@
 
         <div class="grid gap-4 grid-cols-2 text-[var(--neutral-white)] mb-8 lg:grid-cols-3">
 
-          <button
-            class="five flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]">5%</button>
-          <button
-            class="ten flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]">10%</button>
-          <button
-            class="fifteen flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]">15%</button>
-          <button
-            class="twentyfive flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]">25%</button>
-          <button
-            class="fifty flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]">50%</button>
-          <input
-            class="custom-input text-right bg-[var(--neutral-very-light-grey)] rounded-lg focus:outline-[var(--neutral-dark--cyan)] text-[var(--primary-cyan)] px-4 hover:cursor-pointer"
+          <input type="button" value="5%"
+            class="flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]" />
+          <input type="button" value="10%"
+            class="flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]" />
+          <input type="button" value="15%"
+            class="flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]" />
+          <input type="button" value="25%"
+            class="flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]" />
+          <input type="button" value="50%"
+            class="fifty flex items-center justify-center bg-[var(--neutral-dark-cyan)] p-2 rounded-lg hover:bg-[var(--primary-cyan)] hover:text-[var(--neutral-dark-cyan)]" />
+          <input id="custom-input" 
+            class="text-right bg-[var(--neutral-very-light-grey)] rounded-lg focus:outline-[var(--neutral-dark--cyan)] text-[var(--primary-cyan)] px-4 hover:cursor-pointer"
             type="number" placeholder="Custom">
 
         </div>
 
         <div class="flex items-center gap-2 justify-between">
           <p class="text-base text-[var(--neutral-dark-grey)]">Number of People</p>
-          <p class="people-error text-sm text-red-500 hidden">Can't be zero</p>
+          <p id="textError" class="text-sm text-red-500 hidden">Can't be zero</p>
         </div>
         
-        <div
-        class="people-cont flex items-center justify-between gap-4 bg-[var(--neutral-very-light-grey)] rounded-xl px-4 py-2 mb-8 hover:cursor-pointer border border-solid hover:border-[var(--primary-cyan)]">
+        <div id="inputError" 
+        class="flex items-center justify-between gap-4 bg-[var(--neutral-very-light-grey)] rounded-xl px-4 py-2 mb-8 hover:cursor-pointer border border-solid hover:border-[var(--primary-cyan)]">
           <img class="w-4" src="images/icon-person.svg" alt="" aria-hidden="true">
-          <input class="people-input text-3xl text-[var(--neutral-dark-cyan)] w-full bg-inherit border-none px-2 text-right hover:cursor-pointer focus:outline-none" type="number" placeholder="0">
+          <input id="numPeopleInput" class="text-3xl text-[var(--neutral-dark-cyan)] w-full bg-inherit border-none px-2 text-right hover:cursor-pointer focus:outline-none" type="number" placeholder="0">
         </div>
 
       </div>
@@ -73,10 +73,10 @@
         <div class="grid gap-4">
         <div class="flex items-top justify-between">
           <p class="text-xl">Tip Amount
-            <span class="block text-base  text-[var(--neutral-grey)]">/ person</span>
+            <span class="block text-base text-[var(--neutral-grey)]">/ person</span>
           </p>
 
-          <p class="tip-amount text-3xl text-[var(--primary-cyan)]">$0.00</p>
+          <p id="tipAmount" class="text-3xl text-[var(--primary-cyan)]">$0.00</p>
 
         </div>
 
@@ -85,11 +85,11 @@
             <span class="block text-base text-[var(--neutral-grey)]">/ person</span>
           </p>
 
-          <p class="total text-3xl text-[var(--primary-cyan)]">$0.00</p>
+          <p id="totalAmount" class="text-3xl text-[var(--primary-cyan)]">$0.00</p>
 
         </div>
 </div>
-        <button class="reset flex items-center justify-center p-2 uppercase rounded-lg bg-[var(--primary-cyan)] text-[var(--neutral-dark-cyan)] hover:bg-[var(--neutral-light-grey)]">Reset</button>
+        <button id="resetBtn" class="flex items-center justify-center p-2 uppercase rounded-lg bg-[var(--primary-cyan)] text-[var(--neutral-dark-cyan)] hover:bg-[var(--neutral-light-grey)]">Reset</button>
 
       </div>
 
