@@ -1,57 +1,91 @@
-let billInput = document.querySelector(".bill-input");
-let PeopleInput = document.querySelector(".people-input");
-let CustomInput = document.querySelector(".custom-input");
-let TipAmount = document.querySelector(".tip-amount");
-let TotalEl = document.querySelector(".total");
-let ResetEl = document.querySelector(".reset");
-let PeopleCont = document.querySelector(".people-cont");
-let PeopleEr = document.querySelector(".people-error");
 
-const buttons = [
-  {element: document.querySelector(".five"), tipPercentage: 5},
-  {element: document.querySelector(".ten"), tipPercentage: 10},
-  {element: document.querySelector(".fifteen"), tipPercentage: 15},
-  {element: document.querySelector(".twentyfive"), tipPercentage: 25},
-  {element: document.querySelector(".fifty"), tipPercentage: 50}
-];
+const main = () => {
+	[...inputs].map((inputEl) => {
+		renderResults(inputEl, "click");
+	})
+	
+	renderResults(customInput, "input");
+	resetElements();
+}
 
-buttons.forEach(button => {
-  button.element.addEventListener("click", () => {
-    CustomInput.value =''
-    if (PeopleInput.value !== "" && PeopleInput.value > 0) {
-    let tip = (Number(billInput.value) * button.tipPercentage / 100) / PeopleInput.value;
-    let total = (Number(billInput.value) + tip * PeopleInput.value) / PeopleInput.value;
-    TipAmount.innerHTML = `$${tip.toFixed(2)}`;
-    TotalEl.innerHTML = `$${total.toFixed(2)}`;
-    PeopleEr.classList.add('hidden');
-    PeopleCont.classList.remove('border-red-500');
-  } else {
-    PeopleEr.classList.remove('hidden');
-    PeopleCont.classList.add('border-red-500');
-  }
-  });
-});
+const billInput = document.getElementById("billInput");
+const customInput = document.getElementById("custom-input");
+const inputs = document.querySelectorAll("input[type='button']");
+const numPeopleInput = document.getElementById("numPeopleInput");
+const tipAmount = document.getElementById("tipAmount");
+const textError = document.getElementById("textError");
+const inputError = document.getElementById("inputError");
+const totalAmount = document.getElementById("totalAmount");
+const resetBtn = document.getElementById("resetBtn");
 
-CustomInput.addEventListener("input", () => {
-  if(CustomInput.value > 0) {
-    if (PeopleInput.value !== "" && PeopleInput.value > 0) {
-    let tip = (Number(billInput.value) * CustomInput.value / 100) / PeopleInput.value;
-    let total = (Number(billInput.value) + tip * PeopleInput.value) / PeopleInput.value;
-    TipAmount.innerHTML = `$${tip.toFixed(2)}`;
-    TotalEl.innerHTML = `$${total.toFixed(2)}`;
-    PeopleEr.classList.add('hidden');
-    PeopleCont.classList.remove('border-red-500');
-  } else {
-    PeopleEr.classList.remove('hidden');
-    PeopleCont.classList.add('border-red-500');
-  }
-  }
-});
+const countTip = (bill, tipAm, nbrPeople) => {
+	const tip = (toDigit(bill) * toDigit(tipAm) / 100) / nbrPeople;
+	const total = (toDigit(bill) + tip * nbrPeople) / nbrPeople;
+	return [tip.toFixed(2), total.toFixed(2)]
+}
 
-ResetEl.addEventListener("click" , function() {
-  billInput.value = '';
-  PeopleInput.value = '';
-  CustomInput.value = '';
-  TipAmount.innerHTML = `$0.00`;
-  TotalEl.innerHTML = `$0.00`;
-});
+const errorStyles = () => {
+	if(textError.classList.contains('hidden')) {
+		textError.classList.remove('hidden');
+		inputError.classList.add('border-red-500');
+	}
+}
+
+const removeErrorStyles = () => {
+	if(!textError.classList.contains('hidden')) {
+		textError.classList.add('hidden');
+		inputError.classList.remove('border-red-500');
+	}
+}
+
+const checkInput = (input) => {
+	if(input.value != 0){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+const getTip = (input) => {
+	return input.value;
+}
+
+const toDigit = (n) => {
+	if(n.includes("%")){
+		return parseFloat(n.split("%")[0]);
+	} else {
+		return parseFloat(n);
+	}
+}
+
+const updateDom = (tip, total) => {
+	tipAmount.innerHTML = `$${tip}`;
+    totalAmount.innerHTML = `$${total}`;
+}
+
+const renderResults = (inputEl, eventType) => {
+	inputEl.addEventListener(eventType, () => {
+		if(checkInput(billInput) && checkInput(numPeopleInput)){
+			let result = countTip(billInput.value, inputEl.value, numPeopleInput.value);
+			updateDom(result[0], result[1]);
+			removeErrorStyles();
+		}
+		else {
+			errorStyles();
+		}
+	});
+}
+
+const resetElements = () => {
+	resetBtn.addEventListener("click" , () => {
+		billInput.value = '';
+		numPeopleInput.value = '';
+		customInput.value = '';
+		tipAmount.innerHTML = `$0.00`;
+		totalAmount.innerHTML = `$0.00`;
+		removeErrorStyles();
+	});
+}
+
+main();
