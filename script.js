@@ -1,10 +1,11 @@
 
 const main = () => {
-	[...inputs].map((inputEl) => {
+	inputs.forEach((inputEl) => {
 		renderResults(inputEl, "click");
 	})
 	
 	renderResults(customInput, "input");
+	
 	resetElements();
 }
 
@@ -42,21 +43,14 @@ const checkInput = (input) => {
 	if(input.value != 0){
 		return true;
 	}
-	else {
-		return false;
-	}
-}
-
-const getTip = (input) => {
-	return input.value;
+	return false;
 }
 
 const toDigit = (n) => {
 	if(n.includes("%")){
-		return parseFloat(n.split("%")[0]);
-	} else {
-		return parseFloat(n);
+		return parseFloat(n.replace("%", ""));
 	}
+	return parseFloat(n);
 }
 
 const updateDom = (tip, total) => {
@@ -79,11 +73,10 @@ const renderResults = (inputEl, eventType) => {
 
 const resetElements = () => {
 	resetBtn.addEventListener("click" , () => {
-		billInput.value = '';
-		numPeopleInput.value = '';
-		customInput.value = '';
-		tipAmount.innerHTML = `$0.00`;
-		totalAmount.innerHTML = `$0.00`;
+		[billInput, numPeopleInput, customInput].forEach(input => {
+			input.value = "";
+		});
+		updateDom("0.00", "0.00");
 		removeErrorStyles();
 	});
 }
